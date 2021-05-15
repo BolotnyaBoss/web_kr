@@ -12,6 +12,19 @@
 <h2>Comments</h2>
 <%= render @article.comments %>
 
+
 <h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
 <%= link_to "Home", root_path %>

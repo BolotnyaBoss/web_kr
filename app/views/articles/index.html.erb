@@ -2,11 +2,11 @@
 
 Our blog has <%= Article.count %> articles, like:
 <br>
-<%= Article.public_count %> public articles
+<%= Article.public_count %> public
 <br>
-<%= Article.private_count %> private articles
+<%= Article.private_count %> private
 <br>
-<%= Article.archived_count %> archived articles
+<%= Article.archived_count %> archived
 <br>
 <ul>
   <% @articles.each do |article| %>
