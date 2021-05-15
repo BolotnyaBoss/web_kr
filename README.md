@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In this repo is my test_work from WEB.
 
-Things you may want to cover:
+Things that i made:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Getting started using https://guides.rubyonrails.org/getting_started.html
 
 * ...
+
+
