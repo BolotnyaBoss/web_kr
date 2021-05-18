@@ -8,4 +8,6 @@ Things that i made:
 
 * Authentification using devise gem
 
+* Pagination without gems
+
 
