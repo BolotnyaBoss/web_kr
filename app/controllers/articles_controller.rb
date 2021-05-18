@@ -1,8 +1,9 @@
 class ArticlesController < ApplicationController
   http_basic_authenticate_with name: "likht", password: "skleroz", except: [:index, :show]
-
+  ARTICLES_PER_PAGE = 3
   def index
-    @articles = Article.all
+    @page = params.fetch(:page,0).to_i
+    @articles = Article.offset(@page*ARTICLES_PER_PAGE).limit(ARTICLES_PER_PAGE)
   end
 
   def show
