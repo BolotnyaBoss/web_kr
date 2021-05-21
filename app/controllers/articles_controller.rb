@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   #http_basic_authenticate_with name: "likht", password: "skleroz", except: [:index, :show]
+
   before_action :authenticate_model!, only: %i[new create edit destroy update]
+  before_action :set_article, only: %i[show edit destroy update]
+  before_action :authorize_model!, only: %i[edit destroy update]
+
+
   ARTICLES_PER_PAGE = 3
   def index
     @page = params.fetch(:page,0).to_i
@@ -47,8 +52,17 @@ class ArticlesController < ApplicationController
   end
 
   private
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
   def article_params
     params.require(:article).permit(:title, :body, :status)
+  end
+
+  def authorize_model!
+    return if @article.author_id == current_model.id
+    redirect_to :articles, alert: "You aren`t allowed to perform this action."
   end
 
 end
