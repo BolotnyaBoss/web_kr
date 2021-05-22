@@ -6,7 +6,9 @@ Things that i made:
 
 * Getting started using https://guides.rubyonrails.org/getting_started.html
 
-* Authentification using devise gem
+* Authentication using devise gem
+
+* Authorization using pundit gem
 
 * Pagination without gems
 
