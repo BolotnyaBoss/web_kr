@@ -4,12 +4,14 @@ In this repo is my test_work from WEB.
 
 Things that i made:
 
-* Getting started using https://guides.rubyonrails.org/getting_started.html
+* Getting started using https://guides.rubyonrails.org/getting_started.html = 5
 
-* Authentication using devise gem
+* Authentication using devise gem = 2
 
-* Authorization using pundit gem
+* Authorization using pundit gem + admin manage = 3 + 1 = 4
 
-* Pagination without gems
+* Pagination without gems = 2
 
+* Search without gems = 2
 
+* Sorting by title in decrease order
