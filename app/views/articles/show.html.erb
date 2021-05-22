@@ -7,12 +7,16 @@
 </p>
 <p><%= @article.body %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article),
+<p>
+  <% if policy(@article).update? %>
+  <%= link_to "Edit", edit_article_path(@article) %> |
+    <%end %>
+  <% if policy(@article).destroy? %>
+  <%= link_to "Destroy", article_path(@article),
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
-</ul>
+                  data: { confirm: "Are you sure?" } %>
+    <%end %>
+</p>
 
 <h2>Comments</h2>
 <%= render @article.comments %>

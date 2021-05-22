@@ -3,24 +3,27 @@ class ArticlesController < ApplicationController
 
   before_action :authenticate_model!, only: %i[new create edit destroy update]
   before_action :set_article, only: %i[show edit destroy update]
-  before_action :authorize_model!, only: %i[edit destroy update]
-
 
   ARTICLES_PER_PAGE = 3
   def index
+    authorize Article
+
     @page = params.fetch(:page,0).to_i
     @articles = Article.offset(@page*ARTICLES_PER_PAGE).limit(ARTICLES_PER_PAGE)
   end
 
   def show
+    authorize @article
     @article = Article.find(params[:id])
   end
 
   def new
+    authorize Article
     @article = Article.new
   end
 
   def create
+    authorize @article
     @article = Article.new(article_params)
     @article.author = current_model
     @article.author.username = current_model.username
@@ -32,10 +35,13 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    authorize @article
     @article = Article.find(params[:id])
   end
 
   def update
+    authorize @article
+
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
@@ -45,6 +51,8 @@ class ArticlesController < ApplicationController
     end
   end
   def destroy
+    autorize @article
+
     @article = Article.find(params[:id])
     @article.destroy
 
@@ -58,11 +66,6 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :body, :status)
-  end
-
-  def authorize_model!
-    return if @article.author_id == current_model.id
-    redirect_to :articles, alert: "You aren`t allowed to perform this action."
   end
 
 end
