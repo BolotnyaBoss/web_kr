@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
     authorize Article
 
     @page = params.fetch(:page,0).to_i
-    @articles = Article.offset(@page*ARTICLES_PER_PAGE).limit(ARTICLES_PER_PAGE)
+    @articles = Article.offset(@page*ARTICLES_PER_PAGE).limit(ARTICLES_PER_PAGE).ordered.search(params[:query])
   end
 
   def show

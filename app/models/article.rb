@@ -5,4 +5,12 @@ class Article < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true, length: { minimum: 10 }
+
+  scope :ordered, -> {order(title: :desc)}
+  # scope :with_categories, ->{ includes(:status)}
+  scope :search, ->(query) do
+    return if query.blank?
+
+    where('title ILIKE ? OR title ILIKE ?', "#{query.squish}%", "% #{query.squish}%")
+  end
 end
