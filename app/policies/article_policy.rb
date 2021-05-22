@@ -12,7 +12,7 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def destroy?
-    author?
+    author? || admin?
   end
 
   private

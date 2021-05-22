@@ -34,6 +34,13 @@ class ApplicationPolicy
     false
   end
 
+  private
+  def admin?
+    return false unless user
+
+    user.admin?
+  end
+
   class Scope
     attr_reader :user, :scope
 

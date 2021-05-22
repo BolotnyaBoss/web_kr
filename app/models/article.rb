@@ -11,6 +11,6 @@ class Article < ApplicationRecord
   scope :search, ->(query) do
     return if query.blank?
 
-    where('title ILIKE ? OR title ILIKE ?', "#{query.squish}%", "% #{query.squish}%")
+    where('title LIKE ? OR title LIKE ?', "#{query.squish}%", "% #{query.squish}%")
   end
 end
