@@ -4,12 +4,10 @@ class ArticlesController < ApplicationController
   before_action :authenticate_model!, only: %i[new create edit destroy update]
   before_action :set_article, only: %i[show edit destroy update]
 
-  ARTICLES_PER_PAGE = 3
   def index
     authorize Article
-
-    @page = params.fetch(:page,0).to_i
-    @articles = Article.offset(@page*ARTICLES_PER_PAGE).limit(ARTICLES_PER_PAGE).ordered.search(params[:query])
+    #@page = params.fetch(:page, 0).to_i
+    @articles = Article.ordered.paginate(:page => params[:page], per_page: 3).search(params[:query])
   end
 
   def show

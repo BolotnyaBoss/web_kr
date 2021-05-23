@@ -4,7 +4,7 @@ class Model < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable
   has_many :articles, foreign_key: :author_id, inverse_of: :author
-
+  has_many :likes, dependent: :destroy
   ROLES = {
     user: 0,
     admin: 1

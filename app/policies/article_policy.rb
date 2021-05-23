@@ -8,11 +8,11 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def update?
-    author?
+    admin?
   end
 
   def destroy?
-    author? || admin?
+    admin?
   end
 
   private
