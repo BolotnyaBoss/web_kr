@@ -10,8 +10,10 @@ Things that i made:
 
 * Authorization using pundit gem + admin manage = 3 + 1 = 4
 
-* Pagination without gems = 2
+* Pagination using will_paginate gem = 2
 
 * Search without gems = 2
 
 * Sorting by title in decrease order
+
+* Liking and unliking articles
