@@ -2,6 +2,16 @@
   <%= link_to "New Article", new_article_path %>
 </div>
 <br>
+<form action = "/filter" method="get">
+  <select name="q">
+    <option value="Public" selected>Public</option>
+    <option value="Private">Private</option>
+    <option value="Archived">Archived</option>
+  </select>
+  <button type = "submit" >Filter</button>
+</form>
+
+<br>
 <%= form_with method: :get do |form| %>
   <%= form.text_field :query, placeholder: "Search", value: params[:query] %>
   <%= form.submit "Search" %>

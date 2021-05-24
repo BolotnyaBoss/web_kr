@@ -57,6 +57,10 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
+  def filter
+    @articles = Article.where("status LIKE ?", "%"+params[:q]+"%")
+  end
+
   private
   def set_article
     @article = Article.find(params[:id])
