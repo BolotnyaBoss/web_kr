@@ -14,10 +14,12 @@ Things that i made:
 
 * Search without gems = 2
 
+* Filtering articles by status = 2
+
 Extra features:
 
 * Sorting by title in decrease order
 
 * Liking and unliking articles
 
-Total = 5 + 2 + 4 + 2 + 2 + exrta marks = 15 + extra marks
+Total = 5 + 2 + 4 + 2 + 2 + 2 + exrta marks = 17 + extra marks
