@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   def index
     authorize Article
     #@page = params.fetch(:page, 0).to_i
-    @articles = Article.ordered.paginate(:page => params[:page], per_page: 3).search(params[:query])
+    @articles = Article.ordered.paginate(:page => params[:page], per_page: 3).search(params[:query]).includes(:likes)
   end
 
   def show
