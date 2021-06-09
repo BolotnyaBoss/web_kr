@@ -7,6 +7,10 @@ class ArticlePolicy < ApplicationPolicy
     true
   end
 
+  def create?
+    true
+  end
+
   def update?
     admin? || author?
   end

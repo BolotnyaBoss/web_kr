@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    authorize @article
+    authorize Article
     @article = Article.new(article_params)
     @article.author = current_model
     @article.author.username = current_model.username
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
     end
   end
   def destroy
-    autorize @article
+    authorize @article
 
     @article = Article.find(params[:id])
     @article.destroy
